@@ -1,19 +1,51 @@
 import { useState } from 'react'
 import { useModal } from '../context/ModalContext'
+import { collection, addDoc } from "firebase/firestore"
+import { db } from '../firebase'
 
 export default function ContactModal() {
     const { isOpen, close } = useModal()
     const [submitted, setSubmitted] = useState(false)
+    const [isSubmitting, setIsSubmitting] = useState(false)
+    const [error, setError] = useState(null)
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        website: '',
+        requirement: ''
+    })
 
     if (!isOpen) return null
 
-    const handleSubmit = (e) => {
+    const handleChange = (e) => {
+        setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))
+    }
+
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        setSubmitted(true)
-        setTimeout(() => {
-            setSubmitted(false)
-            close()
-        }, 2500)
+        setIsSubmitting(true)
+        setError(null)
+
+        try {
+            await addDoc(collection(db, "messages"), {
+                ...formData,
+                source: "Popup Modal",
+                timestamp: new Date()
+            })
+
+            setSubmitted(true)
+            setTimeout(() => {
+                setSubmitted(false)
+                setFormData({ name: '', email: '', phone: '', website: '', requirement: '' })
+                close()
+            }, 3000)
+        } catch (err) {
+            console.error("Error adding document: ", err)
+            setError("Oops! Something went wrong. Please try again.")
+        } finally {
+            setIsSubmitting(false)
+        }
     }
 
     return (
@@ -66,6 +98,9 @@ export default function ContactModal() {
                                 <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 text-lg">person</span>
                                 <input
                                     type="text"
+                                    name="name"
+                                    value={formData.name}
+                                    onChange={handleChange}
                                     placeholder="Name*"
                                     required
                                     className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-slate-200 text-sm text-slate-800 placeholder-slate-400 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
@@ -75,6 +110,9 @@ export default function ContactModal() {
                                 <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 text-lg">mail</span>
                                 <input
                                     type="email"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
                                     placeholder="Email*"
                                     required
                                     className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-slate-200 text-sm text-slate-800 placeholder-slate-400 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
@@ -84,6 +122,9 @@ export default function ContactModal() {
                                 <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 text-lg">call</span>
                                 <input
                                     type="tel"
+                                    name="phone"
+                                    value={formData.phone}
+                                    onChange={handleChange}
                                     placeholder="Phone No.*"
                                     required
                                     className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-slate-200 text-sm text-slate-800 placeholder-slate-400 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
@@ -93,6 +134,9 @@ export default function ContactModal() {
                                 <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 text-lg">language</span>
                                 <input
                                     type="url"
+                                    name="website"
+                                    value={formData.website}
+                                    onChange={handleChange}
                                     placeholder="Your Website"
                                     className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-slate-200 text-sm text-slate-800 placeholder-slate-400 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
                                 />
@@ -100,17 +144,24 @@ export default function ContactModal() {
                             <div className="relative">
                                 <span className="material-symbols-outlined absolute left-4 top-4 text-slate-300 text-lg">edit_note</span>
                                 <textarea
+                                    name="requirement"
+                                    value={formData.requirement}
+                                    onChange={handleChange}
                                     placeholder="Your Requirement"
                                     rows="3"
                                     className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-slate-200 text-sm text-slate-800 placeholder-slate-400 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all resize-none"
                                 ></textarea>
                             </div>
+
+                            {error && <p className="text-red-500 text-xs text-center">{error}</p>}
+
                             <button
                                 type="submit"
-                                className="w-full py-4 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold rounded-xl transition-all text-sm shadow-lg shadow-blue-500/25 cursor-pointer flex items-center justify-center gap-2"
+                                disabled={isSubmitting}
+                                className="w-full py-4 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold rounded-xl transition-all text-sm shadow-lg shadow-blue-500/25 cursor-pointer flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
                             >
                                 <span className="material-symbols-outlined text-lg">send</span>
-                                Request A Callback
+                                {isSubmitting ? 'Sending...' : 'Request A Callback'}
                             </button>
                         </form>
                     </div>
