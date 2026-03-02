@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3b82f6",
+                        "accent": "#8b5cf6",
+                        "background-light": "#fcfdfe",
+                        "surface-blue": "#f0f7ff",
+                        "process-bg": "#f4f9ff",
+                        "footer-bg": "#000000",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "2xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        :root {
+            --primary-blue: #3b82f6;
+            --soft-blue: #f0f7ff;
+            --vibrant-gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            --grid-pattern: radial-gradient(circle, #cbd5e1 1px, transparent 1px);
+        }
+        body {
+            background-color: var(--background-light);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 50%, #eef2ff 0%, #fcfdfe 70%);
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+        }
+        .gradient-text-vibrant {
+            background: var(--vibrant-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .step-number {
+            -webkit-text-stroke: 1px #8b5cf6;
+            color: transparent;
+        }
+        .tech-grid {
+            background-image: var(--grid-pattern);
+            background-size: 40px 40px;
+        }
+        .glow-pulse {
+            animation: glow 3s ease-in-out infinite;
+        }
+        @keyframes glow {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.1); }
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .nav-link {
+            @apply text-[13px] font-medium text-slate-600 hover:text-primary transition-colors;
+        }
+        .footer-link {
+            @apply text-slate-400 hover:text-white transition-colors text-xs flex items-center gap-2;
+        }
+        .logo-gradient-box {
+            background: linear-gradient(135deg, #3b82f6, #ec4899, #8b5cf6);
+        }
+        .feature-bullet {
+            @apply flex items-center gap-2 text-[10px] font-bold text-slate-600 bg-white/70 py-1.5 px-3 rounded-full border border-white/80 backdrop-blur-sm shadow-sm hover:border-primary/30 transition-all cursor-default;
+        }
+        .card-3d-scene {
+            perspective: 1200px;
+        }
+        .map-dot {
+            @apply absolute w-2.5 h-2.5 bg-blue-400 rounded-full;
+            box-shadow: 0 0 10px #3b82f6, 0 0 20px #3b82f6;
+            animation: pulse-dot 2s infinite;
+        }
+        @keyframes pulse-dot {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+    </style>
+</head>
+<body class="font-display text-slate-900 antialiased overflow-x-hidden">
+<div class="relative min-h-screen flex flex-col">
+<div class="fixed inset-0 pointer-events-none -z-10">
+<div class="absolute top-1/4 left-10 w-12 h-12 border-2 border-blue-200/20 rounded-lg rotate-12 floating opacity-50"></div>
+<div class="absolute bottom-1/4 right-20 w-16 h-16 bg-purple-100/10 rounded-full floating opacity-50" style="animation-delay: 2s"></div>
+<div class="absolute top-3/4 left-1/3 w-8 h-8 border-2 border-pink-200/20 rounded-full floating opacity-50" style="animation-delay: 4s"></div>
+</div>
+<nav class="fixed top-0 left-0 right-0 z-50 glass-nav">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="logo-gradient-box p-1.5 rounded-xl shadow-lg shadow-blue-500/20">
+<span class="material-symbols-outlined text-white text-2xl font-bold">deployed_code</span>
+</div>
+<span class="text-2xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500">Maiway AI</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="nav-link" href="#">Home</a>
+<a class="nav-link" href="#">About</a>
+<div class="relative group">
+<button class="nav-link flex items-center gap-1">
+                        Services <span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+</div>
+<a class="nav-link" href="#">Clients</a>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-5 py-2 border border-primary text-primary hover:bg-primary/5 text-xs font-semibold rounded-lg transition-all">
+                    Book A Call
+                </button>
+<button class="px-5 py-2 bg-primary hover:bg-accent text-white text-xs font-semibold rounded-lg transition-all shadow-md">
+                    Contact Us
+                </button>
+</div>
+</div>
+</nav>
+<main class="flex-grow">
+<section class="relative hero-gradient pt-32 pb-20 overflow-hidden">
+<div class="absolute inset-0 tech-grid opacity-[0.05]"></div>
+<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+<div class="flex flex-col gap-6 text-center lg:text-left">
+<div class="flex items-center gap-4 justify-center lg:justify-start">
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-primary text-[10px] font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                            AI Development for startups &amp; enterprises
+                        </div>
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-50 border border-purple-100 text-purple-600 text-[10px] font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                            Execution-focused. No fluff
+                        </div>
+</div>
+<h1 class="text-5xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight text-slate-900">
+                        Build &amp; Grow. The <span class="gradient-text-vibrant">New Era</span> of IT Consulting by <span class="text-primary">Maiway</span>
+</h1>
+<p class="text-lg text-slate-500 max-w-xl lg:mx-0 mx-auto leading-relaxed">
+                        We blend strategy, technology, and AI/ML to help ambitious teams launch faster, scale smarter, and measure impact.
+                    </p>
+<div class="flex flex-col sm:flex-row items-center gap-4 mt-4 justify-center lg:justify-start">
+<button class="h-14 px-10 bg-primary hover:bg-accent text-white font-bold rounded-full transition-all text-base shadow-xl shadow-blue-500/30">
+                            Book A Call
+                        </button>
+<button class="h-14 px-10 bg-white hover:bg-slate-50 text-slate-700 font-bold rounded-full border border-slate-200 transition-all text-base shadow-sm">
+                            Explore Services
+                        </button>
+</div>
+</div>
+<div class="relative flex justify-center items-center">
+<div class="absolute w-[500px] h-[500px] bg-blue-400/10 rounded-full blur-[100px]"></div>
+<div class="relative z-10">
+<img alt="Friendly 3D AI Robot" class="w-[480px] h-auto rounded-3xl object-contain drop-shadow-2xl floating" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwgN1S8Eg5rd6vv2u-B02zgkIHgJUNBse3IWBEdi3QNvN2e0dGoXFrSrPxn9JyaWYmlhWqFNzK1YsgQZtXLX-iVGdVyQIS-Jgw2PhWWGUd24yLNXInkt5_hr8gFMRUDcHEXwBXa1BTbi6aU4pK-8MKSsO05S21KAw9aREEn8PhvaBrJo47bNkKc89r11pPkkbegG-YhDgvN6uDtdTdoie7Ui3GIMtkrbdaGjYZp-a9IiQmKsjHlaFYaAV8o7yHAW2MAHClcUhyJZH-"/>
+</div>
+</div>
+</div>
+</section>
+<section class="py-12 bg-white relative overflow-hidden border-y border-slate-100">
+<div class="absolute inset-0 tech-grid opacity-[0.03]"></div>
+<div class="max-w-7xl mx-auto px-6 relative z-10">
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-12">
+<div class="flex items-center gap-4 group">
+<div class="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center group-hover:bg-blue-600 transition-colors duration-300">
+<span class="material-symbols-outlined text-primary group-hover:text-white text-3xl">task_alt</span>
+</div>
+<div>
+<span class="text-4xl font-extrabold text-slate-900 block">50+</span>
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Global Projects</p>
+</div>
+</div>
+<div class="flex items-center gap-4 group">
+<div class="w-14 h-14 rounded-2xl bg-purple-50 flex items-center justify-center group-hover:bg-purple-600 transition-colors duration-300">
+<span class="material-symbols-outlined text-purple-600 group-hover:text-white text-3xl">auto_awesome</span>
+</div>
+<div>
+<span class="text-4xl font-extrabold text-slate-900 block">99%</span>
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Model Accuracy</p>
+</div>
+</div>
+<div class="flex items-center gap-4 group">
+<div class="w-14 h-14 rounded-2xl bg-indigo-50 flex items-center justify-center group-hover:bg-indigo-600 transition-colors duration-300">
+<span class="material-symbols-outlined text-indigo-600 group-hover:text-white text-3xl">speed</span>
+</div>
+<div>
+<span class="text-4xl font-extrabold text-slate-900 block">10x</span>
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Faster Delivery</p>
+</div>
+</div>
+<div class="flex items-center gap-4 group">
+<div class="w-14 h-14 rounded-2xl bg-pink-50 flex items-center justify-center group-hover:bg-pink-600 transition-colors duration-300">
+<span class="material-symbols-outlined text-pink-600 group-hover:text-white text-3xl">support_agent</span>
+</div>
+<div>
+<span class="text-4xl font-extrabold text-slate-900 block">24/7</span>
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Expert Support</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="max-w-7xl mx-auto px-6 py-32 relative">
+<div class="absolute inset-0 tech-grid opacity-[0.02] pointer-events-none"></div>
+<div class="flex flex-col items-center text-center gap-4 mb-20">
+<span class="gradient-text-vibrant font-black text-sm uppercase tracking-[0.25em]">Core Practices &amp; Services</span>
+<h2 class="text-4xl md:text-6xl font-extrabold tracking-tight">
+<span class="gradient-text-vibrant">Strategy, Technology &amp; Growth</span>— Built to <br/> Work Together
+                </h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8">
+<div class="lg:col-span-6 group p-10 rounded-[3rem] bg-white border border-slate-100 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-500/10 transition-all flex flex-col relative overflow-hidden min-h-[580px]">
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="text-slate-900 text-3xl font-extrabold mb-3">Business Consulting</h3>
+<p class="text-slate-500 text-sm leading-relaxed max-w-sm">Strategic growth engines through data-backed GTM plans and refined operational excellence.</p>
+</div>
+<span class="material-symbols-outlined text-primary text-3xl bg-blue-50 p-4 rounded-2xl shadow-sm group-hover:scale-110 transition-transform">corporate_fare</span>
+</div>
+<div class="grid grid-cols-2 gap-3 mt-4 mb-10">
+<div class="feature-bullet"><span class="material-symbols-outlined text-[16px] text-blue-500">trending_up</span> Go-To-Market</div>
+<div class="feature-bullet"><span class="material-symbols-outlined text-[16px] text-blue-500">groups</span> Org Design</div>
+<div class="feature-bullet"><span class="material-symbols-outlined text-[16px] text-blue-500">receipt_long</span> Financial Models</div>
+<div class="feature-bullet"><span class="material-symbols-outlined text-[16px] text-blue-500">rocket_launch</span> Scaling Strategy</div>
+</div>
+</div>
+<div class="mt-auto relative w-full h-[280px] card-3d-scene">
+<div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[400px] h-[220px] bg-slate-50 rounded-2xl border border-slate-200 shadow-xl overflow-hidden transform rotate-x-12 rotate-y-[-5deg]">
+<div class="absolute inset-0 tech-grid opacity-10"></div>
+<div class="absolute top-8 left-8 w-24 h-32 bg-white rounded-lg border border-slate-200 shadow-md p-3 transform -rotate-12 translate-z-10">
+<div class="h-1 w-full bg-slate-100 mb-2"></div>
+<div class="h-1 w-3/4 bg-slate-100 mb-4"></div>
+<div class="h-12 w-full bg-blue-50 rounded flex flex-col justify-center gap-1 px-1">
+<div class="h-0.5 w-full bg-blue-200"></div>
+<div class="h-0.5 w-2/3 bg-blue-200"></div>
+</div>
+</div>
+<div class="absolute top-12 right-12 w-32 h-24 bg-white rounded-lg border border-slate-200 shadow-md p-4 transform rotate-6">
+<div class="flex gap-1 mb-4">
+<div class="w-1.5 h-1.5 rounded-full bg-red-400"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-yellow-400"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-green-400"></div>
+</div>
+<div class="h-10 w-full bg-purple-50 rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-purple-400 text-xl">query_stats</span>
+</div>
+</div>
+<div class="absolute bottom-4 left-1/2 -translate-x-1/2 w-48 h-12 bg-white rounded-full border border-slate-200 shadow-lg flex items-center justify-between px-4">
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full bg-blue-100 border-2 border-white"></div>
+<div class="w-6 h-6 rounded-full bg-purple-100 border-2 border-white"></div>
+<div class="w-6 h-6 rounded-full bg-pink-100 border-2 border-white"></div>
+</div>
+<div class="h-2 w-16 bg-slate-100 rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-6 group p-10 rounded-[3rem] bg-white border border-slate-100 hover:border-indigo-200 hover:shadow-2xl hover:shadow-indigo-500/10 transition-all flex flex-col relative overflow-hidden min-h-[580px]">
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="text-slate-900 text-3xl font-extrabold mb-3">IT &amp; Digital Transformation</h3>
+<p class="text-slate-500 text-sm leading-relaxed max-w-sm">Architecting resilient, cloud-first infrastructures for hyper-connected enterprises.</p>
+</div>
+<span class="material-symbols-outlined text-indigo-600 text-3xl bg-indigo-50 p-4 rounded-2xl shadow-sm group-hover:scale-110 transition-transform">cloud_sync</span>
+</div>
+<div class="grid grid-cols-2 gap-3 mt-4 mb-10">
+<div class="feature-bullet"><span class="material-symbols-outlined text-[16px] text-indigo-500">settings_suggest</span> ERP/CRM Hubs</div>
+<div class="feature-bullet"><span class="material-symbols-outlined text-[16px] text-indigo-500">terminal</span> Modern Stacks</div>
+<div class="feature-bullet"><span class="material-symbols-outlined text-[16px] text-indigo-500">security</span> Zero-Trust Security</div>
+<div class="feature-bullet"><span class="material-symbols-outlined text-[16px] text-indigo-500">dns</span> Cloud Native</div>
+</div>
+</div>
+<div class="mt-auto relative w-full h-[280px] card-3d-scene">
+<div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[400px] h-[220px] bg-slate-900 rounded-2xl border border-slate-700 shadow-2xl overflow-hidden transform rotate-x-12 rotate-y-[5deg] p-6">
+<div class="grid grid-cols-3 gap-4 h-full">
+<div class="space-y-3">
+<div class="h-2 w-full bg-slate-800 rounded"></div>
+<div class="h-32 bg-slate-800/50 rounded-lg border border-slate-700 flex flex-col items-center justify-center gap-2 group-hover:border-indigo-500 transition-colors">
+<span class="material-symbols-outlined text-indigo-400 text-4xl">storage</span>
+<div class="w-8 h-1 bg-indigo-500/30 rounded"></div>
+</div>
+</div>
+<div class="space-y-3 pt-6">
+<div class="h-2 w-full bg-slate-800 rounded"></div>
+<div class="h-32 bg-slate-800/50 rounded-lg border border-slate-700 flex flex-col items-center justify-center gap-2 group-hover:border-purple-500 transition-colors">
+<span class="material-symbols-outlined text-purple-400 text-4xl">lan</span>
+<div class="w-8 h-1 bg-purple-500/30 rounded"></div>
+</div>
+</div>
+<div class="space-y-3">
+<div class="h-2 w-full bg-slate-800 rounded"></div>
+<div class="h-32 bg-slate-800/50 rounded-lg border border-slate-700 flex flex-col items-center justify-center gap-2 group-hover:border-blue-500 transition-colors">
+<span class="material-symbols-outlined text-blue-400 text-4xl">router</span>
+<div class="w-8 h-1 bg-blue-500/30 rounded"></div>
+</div>
+</div>
+</div>
+<div class="absolute top-2 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-indigo-500/50 to-transparent"></div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-12 group p-12 rounded-[4rem] bg-gradient-to-br from-slate-50 to-indigo-50 border border-slate-100 hover:border-purple-200 hover:shadow-3xl hover:shadow-purple-500/10 transition-all flex flex-col lg:flex-row items-center gap-16 relative overflow-hidden min-h-[500px]">
+<div class="absolute inset-0 tech-grid opacity-[0.08]"></div>
+<div class="relative z-10 flex-1">
+<div class="flex items-center gap-5 mb-8">
+<span class="material-symbols-outlined text-purple-600 text-5xl bg-white p-5 rounded-[2rem] shadow-sm">psychology</span>
+<h3 class="text-slate-900 text-5xl font-extrabold tracking-tight">AI/ML &amp; Analytics</h3>
+</div>
+<p class="text-slate-600 text-xl leading-relaxed max-w-xl mb-10">Deploying practical agentic workflows and predictive engines that automate complexity and fuel compounding growth.</p>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+<div class="feature-bullet"><span class="material-symbols-outlined text-[18px] text-purple-500">hub</span> NLP &amp; LLM Fine-tuning</div>
+<div class="feature-bullet"><span class="material-symbols-outlined text-[18px] text-purple-500">model_training</span> Predictive Modeling</div>
+<div class="feature-bullet"><span class="material-symbols-outlined text-[18px] text-purple-500">database</span> Robust Data Pipelines</div>
+<div class="feature-bullet"><span class="material-symbols-outlined text-[18px] text-purple-500">smart_toy</span> Multi-Agent Systems</div>
+<div class="feature-bullet"><span class="material-symbols-outlined text-[18px] text-purple-500">visibility</span> Computer Vision</div>
+<div class="feature-bullet"><span class="material-symbols-outlined text-[18px] text-purple-500">auto_awesome</span> Intelligent Automation</div>
+</div>
+</div>
+<div class="flex-1 w-full flex justify-center items-center relative py-10 lg:py-0">
+<div class="relative w-[400px] h-[400px]">
+<div class="absolute inset-0 bg-purple-500/10 rounded-full blur-[80px] glow-pulse"></div>
+<div class="relative z-10 w-full h-full rounded-[3.5rem] border-[16px] border-white shadow-3xl flex items-center justify-center bg-white/40 backdrop-blur-md overflow-hidden group-hover:rotate-1 transition-transform duration-700">
+<div class="absolute inset-0 tech-grid opacity-20"></div>
+<div class="relative flex items-center justify-center">
+<span class="material-symbols-outlined text-[160px] text-transparent bg-clip-text bg-gradient-to-br from-blue-600 via-purple-600 to-pink-500 floating">memory</span>
+<div class="absolute inset-0 animate-[spin_12s_linear_infinite]">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full glow-pulse shadow-[0_0_15px_rgba(59,130,246,0.5)]"></div>
+</div>
+<div class="absolute inset-4 animate-[spin_20s_linear_infinite_reverse]">
+<div class="absolute bottom-0 right-1/4 w-3 h-3 bg-purple-500 rounded-full glow-pulse shadow-[0_0_15px_rgba(139,92,246,0.5)]"></div>
+</div>
+</div>
+</div>
+<div class="absolute -top-6 -right-6 w-32 h-32 bg-white rounded-3xl shadow-xl flex flex-col items-center justify-center rotate-6 border border-slate-50 group-hover:translate-y-[-10px] transition-transform">
+<span class="material-symbols-outlined text-blue-500 text-4xl mb-1">query_stats</span>
+<span class="text-xl font-black text-slate-800">99.8%</span>
+</div>
+<div class="absolute -bottom-6 -left-6 w-36 h-36 bg-white rounded-3xl shadow-xl flex flex-col items-center justify-center -rotate-6 border border-slate-50 group-hover:translate-y-[10px] transition-transform">
+<span class="material-symbols-outlined text-purple-500 text-4xl mb-1">neurology</span>
+<span class="text-xs font-bold text-slate-500 uppercase">Neural Net</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-32 relative overflow-hidden bg-[#0a0f1d] text-white">
+<div class="absolute inset-0 tech-grid opacity-[0.05]"></div>
+<div class="max-w-7xl mx-auto px-6 relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div>
+<span class="text-blue-400 font-bold text-xs uppercase tracking-[0.4em] mb-6 block">Our Impact is Global</span>
+<h2 class="text-5xl md:text-6xl font-extrabold tracking-tight mb-10 leading-tight">Connecting Intelligence <br/> Across Continents</h2>
+<p class="text-slate-400 text-xl leading-relaxed mb-12">Headquartered in India with a strong footprint in the US, Europe, and Asia. We build the digital infrastructure for 24/7 global transformation.</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div class="bg-white/5 p-6 rounded-3xl border border-white/10 hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-blue-400 text-3xl mb-4">public</span>
+<h4 class="font-bold text-lg mb-2">Hybrid Delivery</h4>
+<p class="text-slate-500 text-sm">Synchronized workflows across all global timezones.</p>
+</div>
+<div class="bg-white/5 p-6 rounded-3xl border border-white/10 hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-purple-400 text-3xl mb-4">language</span>
+<h4 class="font-bold text-lg mb-2">Localized Models</h4>
+<p class="text-slate-500 text-sm">AI trained for regional nuances and regulations.</p>
+</div>
+</div>
+</div>
+<div class="relative flex justify-center">
+<div class="relative w-full aspect-square max-w-[550px] border border-white/10 rounded-full flex items-center justify-center p-12 bg-blue-500/[0.03]">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.15)_0%,transparent_70%)] animate-pulse"></div>
+<div class="relative w-full h-full border border-blue-500/20 rounded-full">
+<svg class="w-full h-full opacity-30" viewBox="0 0 100 100">
+<circle cx="50" cy="50" fill="none" r="45" stroke="currentColor" stroke-dasharray="1 3" stroke-width="0.5"></circle>
+<circle cx="50" cy="50" fill="none" r="30" stroke="currentColor" stroke-dasharray="1 3" stroke-width="0.5"></circle>
+<path d="M50 5 L50 95 M5 50 L95 50" stroke="currentColor" stroke-width="0.1"></path>
+<path d="M30 40 Q 50 20 75 55" fill="none" stroke="#3b82f6" stroke-dasharray="1 2" stroke-width="0.2"></path>
+<path d="M25 65 Q 45 80 80 30" fill="none" stroke="#8b5cf6" stroke-dasharray="1 2" stroke-width="0.2"></path>
+</svg>
+<div class="map-dot" style="top: 35%; left: 25%;"></div>
+<div class="map-dot" style="top: 45%; left: 75%; animation-delay: 0.5s"></div>
+<div class="map-dot" style="top: 70%; left: 45%; animation-delay: 1s"></div>
+<div class="map-dot" style="top: 25%; left: 60%; animation-delay: 1.5s"></div>
+<div class="map-dot" style="top: 60%; left: 15%; animation-delay: 2s"></div>
+</div>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-[160px] text-blue-500/20 blur-sm">public</span>
+<span class="material-symbols-outlined text-[140px] text-blue-500/40 absolute">public</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-process-bg py-32 relative overflow-hidden">
+<div class="absolute inset-0 tech-grid opacity-[0.05]"></div>
+<div class="max-w-7xl mx-auto px-6 relative z-10">
+<div class="text-center mb-24">
+<span class="gradient-text-vibrant font-bold text-xs uppercase tracking-[0.4em] mb-4 block">Execution Lifecycle</span>
+<h2 class="text-5xl md:text-6xl font-extrabold text-slate-900 tracking-tight">How We Deliver Results</h2>
+</div>
+<div class="relative flex flex-col md:flex-row justify-between items-start gap-12">
+<div class="flex-1 flex flex-col items-center text-center group">
+<div class="relative w-56 h-56 mb-10 flex items-center justify-center">
+<div class="absolute inset-0 bg-white rounded-full border border-blue-50 shadow-xl group-hover:scale-110 transition-transform"></div>
+<div class="relative z-10">
+<span class="material-symbols-outlined text-7xl text-primary drop-shadow-xl">database_upload</span>
+</div>
+</div>
+<div class="space-y-4">
+<span class="text-primary/20 font-black text-6xl block">01</span>
+<h3 class="text-2xl font-bold text-slate-900">Data Ingestion</h3>
+<p class="text-slate-500 text-sm leading-relaxed max-w-xs">Building seamless automated pipelines to aggregate and clean proprietary data assets.</p>
+</div>
+</div>
+<div class="flex-1 flex flex-col items-center text-center group pt-12 md:pt-24">
+<div class="relative w-64 h-64 mb-10 flex items-center justify-center">
+<div class="absolute inset-0 bg-white rounded-full border border-purple-50 shadow-2xl group-hover:scale-110 transition-transform"></div>
+<div class="relative z-10">
+<span class="material-symbols-outlined text-8xl text-purple-600/80">hub</span>
+</div>
+</div>
+<div class="space-y-4">
+<span class="text-purple-600/20 font-black text-6xl block">02</span>
+<h3 class="text-2xl font-bold text-slate-900">Model Training</h3>
+<p class="text-slate-500 text-sm leading-relaxed max-w-xs">Fine-tuning high-performance neural networks specialized for your unique logic.</p>
+</div>
+</div>
+<div class="flex-1 flex flex-col items-center text-center group">
+<div class="relative w-56 h-56 mb-10 flex items-center justify-center">
+<div class="absolute inset-0 bg-white rounded-full border border-blue-50 shadow-xl group-hover:scale-110 transition-transform"></div>
+<div class="relative z-10">
+<span class="material-symbols-outlined text-7xl text-blue-500 drop-shadow-xl">cloud_done</span>
+</div>
+</div>
+<div class="space-y-4">
+<span class="text-primary/20 font-black text-6xl block">03</span>
+<h3 class="text-2xl font-bold text-slate-900">Deployment</h3>
+<p class="text-slate-500 text-sm leading-relaxed max-w-xs">Scaling to secure cloud environments with real-time performance monitoring.</p>
+</div>
+</div>
+<div class="hidden md:block absolute top-[20%] left-[20%] right-[20%] h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent -z-10"></div>
+</div>
+</div>
+</section>
+<section class="bg-white py-32 relative border-t border-slate-100">
+<div class="max-w-7xl mx-auto px-6 relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div class="relative group">
+<div class="absolute -inset-4 bg-gradient-to-tr from-blue-500/10 to-purple-500/10 rounded-[3rem] blur-2xl group-hover:blur-3xl transition-all"></div>
+<div class="relative bg-white p-4 rounded-[3rem] shadow-3xl border border-slate-100">
+<img alt="Dashboard Preview" class="rounded-[2.5rem] w-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCP-ZLtpu9EtHME_6OOqw__4ZlE4SDzde5BxqWVcd2vyJAviSmBDsAKqxbIzsjCrQYYn1aCgH-FkPcX6hj1Q7QyKBK9VG4a9wyYH-1Om7uIz4i7fFyPrFmY_TcGQTV3JREbyuaWxx1fKaAIQlbUnGlUeNxLj9hwXqACgo3eQIhoC-5OBk6tHFHVNmay8eWVxi3AsJt1yKWOK2lzZctB_KvOvKvWwMayIZhr5EaDidaNb1W4yV1sBPMMcy7IvntfXF5XLmPqL6FoLRcq"/>
+</div>
+</div>
+<div class="flex flex-col gap-12">
+<div>
+<span class="gradient-text-vibrant font-bold text-xs uppercase tracking-[0.4em] mb-4 block">Our Engagement Model</span>
+<h2 class="text-5xl font-extrabold text-slate-900 leading-tight">From Strategic Clarity to <br/> Compounding Results</h2>
+</div>
+<div class="space-y-12">
+<div class="flex gap-8 group">
+<div class="text-5xl font-extrabold step-number opacity-20 group-hover:opacity-100 transition-all shrink-0">01</div>
+<div class="space-y-3">
+<h4 class="text-2xl font-bold text-slate-900">Discovery &amp; Quick Wins</h4>
+<p class="text-slate-500 text-base leading-relaxed">Deep-dive workshops to align on business goals, map architecture, and identify immediate ROI opportunities.</p>
+</div>
+</div>
+<div class="flex gap-8 group">
+<div class="text-5xl font-extrabold step-number opacity-20 group-hover:opacity-100 transition-all shrink-0">02</div>
+<div class="space-y-3">
+<h4 class="text-2xl font-bold text-slate-900">Agile Build &amp; Integration</h4>
+<p class="text-slate-500 text-base leading-relaxed">Rapid prototyping and iterative development of custom AI agents and cloud-native solutions.</p>
+</div>
+</div>
+<div class="flex gap-8 group">
+<div class="text-5xl font-extrabold step-number opacity-20 group-hover:opacity-100 transition-all shrink-0">03</div>
+<div class="space-y-3">
+<h4 class="text-2xl font-bold text-slate-900">Scale &amp; Optimize</h4>
+<p class="text-slate-500 text-base leading-relaxed">Production-grade deployment with continuous monitoring to ensure accuracy and scaling capacity.</p>
+</div>
+</div>
+</div>
+<button class="h-16 px-12 bg-primary hover:bg-accent text-white font-bold rounded-full transition-all text-lg shadow-2xl shadow-blue-500/40 w-fit">
+                            Start Your Journey
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-black text-white pt-24 pb-12">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
+<div class="space-y-8">
+<div class="flex items-center gap-3">
+<div class="logo-gradient-box p-2 rounded-xl">
+<span class="material-symbols-outlined text-white text-2xl">deployed_code</span>
+</div>
+<span class="text-2xl font-bold tracking-tight">Maiway AI</span>
+</div>
+<p class="text-slate-400 text-sm leading-relaxed max-w-xs">
+                        A next-generation consulting firm merging strategy, engineering, and AI to help ambitious companies ship products that win.
+                    </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-primary transition-all group" href="#">
+<img alt="LinkedIn" class="w-4 h-4 opacity-70 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDmEWxtzo1sH_d50AycPT4sCP7L8LWzpYc7cbNQAKnjbr-3z99hGwBvU0WWzy4QXHg5enHUM5oEBRfpi-sfnsCEbicCGAKt65yjERRDvDZ8X7H2wY4m2jKEFvtLBz6BF2bkbXfNj8X_e8iWo_lq2p3HjJiJ8qs2cxxkmP6-ZRuaEGWGeoSUy3Bb5gqG3miLYkUJFP-Lg4dyrEtDWDsbT3x-kbpnZ5T0J5UIUYYyp-cBuqjdk6QuWFM9edMZH-n-RavmR2w8vgDh6RS"/>
+</a>
+<a class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-primary transition-all group" href="#">
+<img alt="Facebook" class="w-4 h-4 opacity-70 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2kAxO5n4sJP_SL01woWd4YFxPmM79OxWBL3EgW08AbZQoXFwBq8lvsBBgWzMDCbztb4jIBtQ1v6WhKMfj_0xNziuk9wGXxyXNa3hs9Mz-st0gr7mnLkqkD5lI0X1E6u_5g0YlatzmX4mZgFXEtLEFfdwfn5w1h3C932uD1uSVzS6-1ithOuayEvqlc5fIx2IJmAARg1LmUA91WRr5Wvg5_KvBNw7hDQCn9p90WlwrZP-VFjc-zhdv7DUOOBqh_95_TmrswU9-a_zS"/>
+</a>
+</div>
+</div>
+<div>
+<h4 class="font-bold mb-10 text-white uppercase tracking-[0.3em] text-xs">Platform</h4>
+<ul class="space-y-5">
+<li><a class="footer-link" href="#"><span class="material-symbols-outlined text-[14px]">chevron_right</span> Solutions</a></li>
+<li><a class="footer-link" href="#"><span class="material-symbols-outlined text-[14px]">chevron_right</span> Strategy</a></li>
+<li><a class="footer-link" href="#"><span class="material-symbols-outlined text-[14px]">chevron_right</span> AI Lab</a></li>
+<li><a class="footer-link" href="#"><span class="material-symbols-outlined text-[14px]">chevron_right</span> Success Stories</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-10 text-white uppercase tracking-[0.3em] text-xs">Get in Touch</h4>
+<ul class="space-y-6 text-sm text-slate-400">
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary">call</span>
+<span>+91-99585 03926</span>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary">mail</span>
+<span>team@maiwaytech.com</span>
+</li>
+<li class="flex items-start gap-4 leading-relaxed">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<span>1018, Tower B, I-Thum Tower,<br/>Sector 62, Noida, 201301</span>
+</li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-10 text-white uppercase tracking-[0.3em] text-xs">Newsletter</h4>
+<p class="text-xs text-slate-500 mb-6">Stay ahead with the latest in AI and strategy.</p>
+<div class="relative flex items-center">
+<input class="bg-[#111] border border-white/10 rounded-xl pl-5 pr-12 py-4 text-xs w-full focus:ring-1 focus:ring-primary focus:border-transparent outline-none text-white placeholder-slate-600" placeholder="Enter your email" type="email"/>
+<button class="absolute right-2 px-3 py-2 bg-primary hover:bg-accent rounded-lg transition-colors">
+<span class="material-symbols-outlined text-white text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<div class="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-slate-500">
+<p>© 2024 Maiway Technologies. All Rights Reserved.</p>
+<div class="flex gap-8">
+<a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-white transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+
+</body></html>
