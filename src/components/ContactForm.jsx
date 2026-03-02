@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { collection, addDoc } from "firebase/firestore"
+import { db } from '../firebase'
 
 export default function ContactForm() {
     const [formData, setFormData] = useState({
@@ -17,16 +19,28 @@ export default function ContactForm() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         setIsSubmitting(true)
+        setSubmitStatus(null)
 
-        // Mock submission
-        setTimeout(() => {
-            setIsSubmitting(false)
+        try {
+            await addDoc(collection(db, "messages"), {
+                name: formData.name,
+                phone: formData.phone || '',
+                email: formData.email,
+                message: formData.message,
+                timestamp: new Date()
+            })
+
             setSubmitStatus('success')
             setFormData({ name: '', phone: '', email: '', message: '' })
 
-            // Clear success message after 3 seconds
-            setTimeout(() => setSubmitStatus(null), 3000)
-        }, 1000)
+            // Clear success message after 5 seconds
+            setTimeout(() => setSubmitStatus(null), 5000)
+        } catch (error) {
+            console.error("Error adding document: ", error)
+            setSubmitStatus('error')
+        } finally {
+            setIsSubmitting(false)
+        }
     }
 
     return (
@@ -102,6 +116,11 @@ export default function ContactForm() {
             {submitStatus === 'success' && (
                 <div className="text-emerald-400 text-center mt-4 p-3 bg-emerald-500/10 border border-emerald-500/20 rounded-xl animate-[fade-in_0.3s_ease-out]">
                     Your message has been sent successfully! Our team will contact you soon.
+                </div>
+            )}
+            {submitStatus === 'error' && (
+                <div className="text-red-400 text-center mt-4 p-3 bg-red-500/10 border border-red-500/20 rounded-xl animate-[fade-in_0.3s_ease-out]">
+                    Oops! Something went wrong while sending your message. Please try again or email us directly.
                 </div>
             )}
         </form>
