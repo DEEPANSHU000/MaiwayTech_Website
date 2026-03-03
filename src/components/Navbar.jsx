@@ -12,11 +12,11 @@ export default function Navbar() {
         <nav className="fixed top-0 left-0 right-0 z-50 glass-nav">
             <div className="w-full px-[4%] lg:px-[6%] h-24 flex items-center justify-between">
                 <Link to="/" className="flex items-center" onClick={closeMobile}>
-                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl px-3 py-1.5 shadow-lg shadow-black/20">
+                    <div className="bg-white rounded-full px-4 py-1.5 shadow-[0_0_15px_rgba(255,255,255,0.15)] border border-white/20 flex items-center justify-center overflow-hidden active:scale-95 transition-transform duration-200">
                         <img
                             src="/maiway-logo.png"
                             alt="Maiway AI"
-                            className="h-12 object-contain block"
+                            className="h-10 md:h-11 lg:h-12 object-contain block mix-blend-multiply"
                         />
                     </div>
                 </Link>

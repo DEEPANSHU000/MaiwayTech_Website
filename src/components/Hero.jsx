@@ -28,31 +28,29 @@ export default function Hero() {
                 {/* Left — Text Content */}
                 <div className="flex flex-col gap-4 md:gap-5 text-center lg:text-left">
                     <div className="flex flex-wrap items-center gap-2 justify-center lg:justify-start">
-                        <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-[9px] md:text-[10px] font-bold uppercase tracking-wider">
-                            <span className="material-symbols-outlined text-[14px]">check_circle</span>
-                            AI Development for startups &amp; enterprises
+                        <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-[9px] md:text-[10px] font-bold uppercase tracking-wider backdrop-blur-sm">
+                            <span className="material-symbols-outlined text-[14px]">dataset</span>
+                            High-Quality Data Pipelines
                         </div>
-                        <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-[9px] md:text-[10px] font-bold uppercase tracking-wider">
-                            <span className="material-symbols-outlined text-[14px]">check_circle</span>
-                            Execution-focused. No fluff
+                        <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-[9px] md:text-[10px] font-bold uppercase tracking-wider backdrop-blur-sm">
+                            <span className="material-symbols-outlined text-[14px]">model_training</span>
+                            Enterprise AI Infrastructure
                         </div>
                     </div>
 
                     {/* Fully fluid heading — clamp scales with viewport */}
                     <h1
                         className="font-extrabold leading-[1.05] tracking-tight text-white"
-                        style={{ fontSize: 'clamp(2.2rem, 5.5vw, 6rem)' }}
+                        style={{ fontSize: 'clamp(2.2rem, 5vw, 5.5rem)' }}
                     >
-                        Build &amp; Grow. The{' '}
-                        <span className="gradient-text-vibrant">New Era</span> of AI/IT Consulting by{' '}
-                        <span className="text-primary">Maiway</span>
+                        The <span className="gradient-text-vibrant">Data Engine</span> to Power Your Greatest AI Ambitions.
                     </h1>
 
                     <p
                         className="text-slate-400 leading-relaxed lg:mx-0 mx-auto"
-                        style={{ fontSize: 'clamp(1rem, 1.6vw, 1.25rem)', maxWidth: '55ch' }}
+                        style={{ fontSize: 'clamp(1rem, 1.3vw, 1.15rem)', maxWidth: '55ch' }}
                     >
-                        We blend strategy, technology, and AI/ML to help ambitious teams launch faster, scale smarter, and measure impact.
+                        From raw information to specialized intelligence. Maiway provides the flawless data labeling, core infrastructure, and strategic consulting needed to build, fine-tune, and deploy world-class AI models at scale.
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center gap-3 mt-2 justify-center lg:justify-start">

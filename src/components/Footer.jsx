@@ -4,15 +4,20 @@ export default function Footer() {
     return (
         <footer className="bg-black text-white pt-10 pb-6">
             <div className="w-full px-[4%] sm:px-[5%]">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-                    <div className="space-y-4">
-                        <Link to="/" className="flex items-center">
-                            <img src="/maiway-logo.png" alt="Maiway AI" className="h-14 object-contain" style={{ mixBlendMode: 'screen', filter: 'brightness(1.1)' }} />
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 xl:gap-6 mb-8">
+                    <div className="space-y-6 xl:pr-4">
+                        <Link to="/" className="inline-flex items-center">
+                            <div className="bg-white rounded-full px-4 py-2 shadow-[0_0_15px_rgba(255,255,255,0.1)] border border-white/20 flex items-center justify-center overflow-hidden hover:scale-[1.02] transition-transform duration-200">
+                                <img src="/maiway-logo.png" alt="Maiway AI" className="h-10 sm:h-12 object-contain mix-blend-multiply" />
+                            </div>
                         </Link>
                         <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
                             A next-generation consulting firm merging strategy, engineering, and AI to help ambitious companies ship products that win.
                         </p>
-                        <div className="flex gap-4">
+                        <p className="text-slate-400 text-sm leading-relaxed max-w-xs mt-4">
+                            Visit our USA partner <a href="https://technoduty.com/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-primary transition-colors font-medium border-b border-white/20 hover:border-primary">TechnoDuty</a>
+                        </p>
+                        <div className="flex gap-4 pt-1">
                             <a className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-[#0A66C2] transition-all group" href="https://www.linkedin.com/company/maiwaytechnologies/posts/?feedView=all" target="_blank" rel="noopener noreferrer" title="LinkedIn">
                                 <svg className="w-4 h-4 fill-slate-400 group-hover:fill-white transition-colors" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
                             </a>
@@ -34,19 +39,40 @@ export default function Footer() {
                         </ul>
                     </div>
                     <div>
-                        <h4 className="font-bold mb-4 text-white uppercase tracking-[0.3em] text-xs">Get in Touch</h4>
+                        <h4 className="font-bold mb-4 text-white uppercase tracking-[0.3em] text-xs flex items-center gap-2">
+                            USA <span className="text-lg" title="United States">🇺🇸</span>
+                        </h4>
                         <ul className="space-y-4 text-sm text-slate-400">
-                            <li className="flex items-start gap-4">
-                                <span className="material-symbols-outlined text-primary">call</span>
-                                <span>+91-99585 03926</span>
+                            <li className="flex items-start gap-3">
+                                <span className="material-symbols-outlined text-primary text-[18px]">call</span>
+                                <a href="tel:+16502158776" className="hover:text-white transition-colors">+1 (650) 215-8776</a>
                             </li>
-                            <li className="flex items-start gap-4">
-                                <span className="material-symbols-outlined text-primary">mail</span>
-                                <span>team@maiwaytech.com</span>
+                            <li className="flex items-start gap-3">
+                                <span className="material-symbols-outlined text-primary text-[18px]">mail</span>
+                                <a href="mailto:team@maiwaytech.com" className="hover:text-white transition-colors break-all">team@maiwaytech.com</a>
                             </li>
-                            <li className="flex items-start gap-4 leading-relaxed">
-                                <span className="material-symbols-outlined text-primary">location_on</span>
-                                <span>1018, Tower B, I-Thum Tower,<br />Sector 62, Noida, 201301</span>
+                            <li className="flex items-start gap-3 leading-relaxed">
+                                <span className="material-symbols-outlined text-primary text-[18px] mt-0.5">location_on</span>
+                                <span>22402, Hemlock Hills Pl<br />Clarksburg, Maryland, 20871<br />United States</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 className="font-bold mb-4 text-white uppercase tracking-[0.3em] text-xs flex items-center gap-2">
+                            INDIA <span className="text-lg" title="India">🇮🇳</span>
+                        </h4>
+                        <ul className="space-y-4 text-sm text-slate-400">
+                            <li className="flex items-start gap-3">
+                                <span className="material-symbols-outlined text-primary text-[18px]">call</span>
+                                <a href="tel:+919958503926" className="hover:text-white transition-colors">+91 9958503926</a>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <span className="material-symbols-outlined text-primary text-[18px]">mail</span>
+                                <a href="mailto:team@maiwaytech.com" className="hover:text-white transition-colors break-all">team@maiwaytech.com</a>
+                            </li>
+                            <li className="flex items-start gap-3 leading-relaxed">
+                                <span className="material-symbols-outlined text-primary text-[18px] mt-0.5">location_on</span>
+                                <span>1018, Tower B, A-40, i-Thum Tower,<br />Sector-62, Noida-201301,<br />U.P., India</span>
                             </li>
                         </ul>
                     </div>

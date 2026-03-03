@@ -1,4 +1,5 @@
 import Hero from '../components/Hero'
+import ClientMarquee from '../components/ClientMarquee'
 import StatsBar from '../components/StatsBar'
 import GlobalImpact from '../components/GlobalImpact'
 import Process from '../components/Process'
@@ -11,6 +12,7 @@ export default function HomePage() {
     return (
         <>
             <Hero />
+            <ClientMarquee />
             <StatsBar />
             <GlobalImpact />
             <Process />
