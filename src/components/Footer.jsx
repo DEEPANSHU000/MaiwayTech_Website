@@ -14,9 +14,7 @@ export default function Footer() {
                         <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
                             A next-generation consulting firm merging strategy, engineering, and AI to help ambitious companies ship products that win.
                         </p>
-                        <p className="text-slate-400 text-sm leading-relaxed max-w-xs mt-4">
-                            Visit our USA partner <a href="https://technoduty.com/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-primary transition-colors font-medium border-b border-white/20 hover:border-primary">TechnoDuty</a>
-                        </p>
+
                         <div className="flex gap-4 pt-1">
                             <a className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center hover:bg-[#0A66C2] transition-all group" href="https://www.linkedin.com/company/maiwaytechnologies/posts/?feedView=all" target="_blank" rel="noopener noreferrer" title="LinkedIn">
                                 <svg className="w-4 h-4 fill-slate-400 group-hover:fill-white transition-colors" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
@@ -54,6 +52,10 @@ export default function Footer() {
                             <li className="flex items-start gap-3 leading-relaxed">
                                 <span className="material-symbols-outlined text-primary text-[18px] mt-0.5">location_on</span>
                                 <span>22402, Hemlock Hills Pl<br />Clarksburg, Maryland, 20871<br />United States</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <span className="material-symbols-outlined text-primary text-[18px]">language</span>
+                                <a href="https://technoduty.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">technoduty.com</a>
                             </li>
                         </ul>
                     </div>
