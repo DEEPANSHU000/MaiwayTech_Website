@@ -16,8 +16,8 @@ export default function HomePage() {
             <StatsBar />
             <GlobalImpact />
             <Process />
-            <FAQ />
             <Engagement />
+            <FAQ />
         </>
     )
 }

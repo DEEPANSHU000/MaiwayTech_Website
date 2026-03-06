@@ -19,7 +19,7 @@ export default function Hero() {
     }
 
     return (
-        <section className="relative hero-gradient pt-24 md:pt-28 pb-12 md:pb-16 overflow-hidden w-full">
+        <section className="relative hero-gradient pt-32 md:pt-36 pb-12 md:pb-16 overflow-hidden w-full">
             <div className="absolute inset-0 tech-grid opacity-[0.05]"></div>
 
             {/* Fluid full-width grid */}
