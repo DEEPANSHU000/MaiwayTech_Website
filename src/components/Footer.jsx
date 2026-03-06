@@ -38,29 +38,6 @@ export default function Footer() {
                     </div>
                     <div>
                         <h4 className="font-bold mb-4 text-white uppercase tracking-[0.3em] text-xs flex items-center gap-2">
-                            USA <span className="text-lg" title="United States">🇺🇸</span>
-                        </h4>
-                        <ul className="space-y-4 text-sm text-slate-400">
-                            <li className="flex items-start gap-3">
-                                <span className="material-symbols-outlined text-primary text-[18px]">call</span>
-                                <a href="tel:+16502158776" className="hover:text-white transition-colors">+1 (650) 215-8776</a>
-                            </li>
-                            <li className="flex items-start gap-3">
-                                <span className="material-symbols-outlined text-primary text-[18px]">mail</span>
-                                <a href="mailto:team@maiwaytech.com" className="hover:text-white transition-colors break-all">team@maiwaytech.com</a>
-                            </li>
-                            <li className="flex items-start gap-3 leading-relaxed">
-                                <span className="material-symbols-outlined text-primary text-[18px] mt-0.5">location_on</span>
-                                <span>22402, Hemlock Hills Pl<br />Clarksburg, Maryland, 20871<br />United States</span>
-                            </li>
-                            <li className="flex items-start gap-3">
-                                <span className="material-symbols-outlined text-primary text-[18px]">language</span>
-                                <a href="https://technoduty.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">technoduty.com</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 className="font-bold mb-4 text-white uppercase tracking-[0.3em] text-xs flex items-center gap-2">
                             INDIA <span className="text-lg" title="India">🇮🇳</span>
                         </h4>
                         <ul className="space-y-4 text-sm text-slate-400">
@@ -75,6 +52,36 @@ export default function Footer() {
                             <li className="flex items-start gap-3 leading-relaxed">
                                 <span className="material-symbols-outlined text-primary text-[18px] mt-0.5">location_on</span>
                                 <span>1018, Tower B, A-40, i-Thum Tower,<br />Sector-62, Noida-201301,<br />U.P., India</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <span className="material-symbols-outlined text-primary text-[18px]">language</span>
+                                <a href="https://maiwaytech.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">maiwaytech.com</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 className="font-bold mb-4 text-white uppercase tracking-[0.3em] text-xs flex items-center gap-2">
+                            USA <span className="text-lg" title="United States">🇺🇸</span>
+                        </h4>
+                        <ul className="space-y-4 text-sm text-slate-400">
+                            <li className="flex items-start gap-3">
+                                <span className="material-symbols-outlined text-primary text-[18px]">call</span>
+                                <a href="tel:+16502158776" className="hover:text-white transition-colors">+1 (650) 215-8776</a>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <span className="material-symbols-outlined text-primary text-[18px]">mail</span>
+                                <div className="flex flex-col gap-1">
+                                    <a href="mailto:team@maiwaytech.com" className="hover:text-white transition-colors break-all">team@maiwaytech.com</a>
+                                    <a href="mailto:sumit@technoduty.com" className="hover:text-white transition-colors break-all">sumit@technoduty.com</a>
+                                </div>
+                            </li>
+                            <li className="flex items-start gap-3 leading-relaxed">
+                                <span className="material-symbols-outlined text-primary text-[18px] mt-0.5">location_on</span>
+                                <span>22402, Hemlock Hills Pl<br />Clarksburg, Maryland, 20871<br />United States</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <span className="material-symbols-outlined text-primary text-[18px]">language</span>
+                                <a href="https://technoduty.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">technoduty.com</a>
                             </li>
                         </ul>
                     </div>
