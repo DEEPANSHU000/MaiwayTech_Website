@@ -174,15 +174,15 @@ export default function About() {
                             <h4 className="text-white font-bold text-lg">Neeraj Nagar</h4>
                             <p className="text-indigo-400 text-xs font-semibold uppercase tracking-wider mt-1">Managing Director</p>
                         </div>
-                        {/* Rajesh Srivasty */}
+                        {/* Rajesh Srivastv */}
                         <div className="group flex flex-col items-center">
                             <div className="relative mb-5">
                                 <div className="absolute -inset-1 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl blur opacity-25 group-hover:opacity-50 transition-opacity duration-500"></div>
                                 <div className="relative w-44 h-52 rounded-2xl overflow-hidden border border-white/10">
-                                    <img src="/team-rajesh.jpg" alt="Rajesh Srivasty" className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
+                                    <img src="/team-rajesh.jpg" alt="Rajesh Srivastv" className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
                                 </div>
                             </div>
-                            <h4 className="text-white font-bold text-lg">Rajesh Srivasty</h4>
+                            <h4 className="text-white font-bold text-lg">Rajesh Srivastv</h4>
                             <p className="text-purple-400 text-xs font-semibold uppercase tracking-wider mt-1">Chief Executive Officer</p>
                         </div>
                         {/* Deepak Rai */}
